@@ -1,88 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Cache-Control" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>登录</title>
-<link href="css/login.css" type="text/css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./js/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="./js/jquery-3.2.1.min.js"></script>
+
 </head>
 <body>
 
-	<div class="login">
-		<div class="message">后台管理系统</div>
-		<div id="darkbannerwrap"></div>
+<div class="head">
+    <a href="#">
+        <img src="" alt="">
+        <img src="" alt="">
+    </a>
+    <div class="first_page">
+        <li><a href="">首页</a></li>
+    </div>
+    <div class="switch_body">
+        <div class="switch_box"><b><img src="img/head_right.png" alt=""></b> 中国站 <i
+                class="glyphicon glyphicon-menu-down"></i></div>
+        <ul>
+            <li><a href="#">International</a></li>
+            <li><a href="#">日本サイト</a></li>
+        </ul>
+    </div>
 
-		<form id="login-form" method="post" onsubmit="return false;">
-			<input id="username" name="username" placeholder="用户名" type="text"
-				autocomplete="off">
-			<hr class="hr15">
-			<input id="password" name="password" placeholder="密码" type="password"
-				autocomplete="off">
-			<hr class="hr15">
-			<button style="width: 100%;" type="submit"
-				onclick="login(this)">登录</button>
-			<hr class="hr20">
-			<span id="info" style="color: red"></span>
-		</form>
+
+</div>
 
 
-	</div>
+<div class="content ">
+    <div class="content_wrap">
+        <a class="left" href="#">
+            <h1>一斗粮广告云</h1>
+            <ul>
+                <li>
+                    入门级云服务器2折起
+                </li>
+                <li>满足个人和初创公司需求</li>
+                <li>降低80%以上运维成本</li>
+                <li> 低门槛快速上云捷径</li>
+            </ul>
+        </a>
+
+        <div class="right">
+            <div class="right_wrap">
+                <div class="top">
+                    密码登录
+                    <div class="toptip">
+                        扫码登录
+                    </div>
+                    <a href=""> <i class="glyphicon glyphicon-qrcode">
+
+                    </i></a>
+                </div>
+                <div class="box">
+                    <form id="login-form" method="post" onsubmit="return false;">
+                    <div><input id="username" name="username" placeholder="用户名" type="text"
+                                autocomplete="off"></div>
+                    <div><input id="password" name="password" placeholder="密码" type="password"
+                                autocomplete="off"></div>
+                    <div>
+                        <button onclick="login(this)">登录</button>
+                    </div>
+                    <div class="forget">
+                        <a href="#">忘记密码</a>
+                        <a href="#">忘记会员名</a>
+                        <a href="#">免费注册</a>
+                    </div>
+                    <!--<div class="otherway">-->
+                        <!--<p>其它方式登录</p>-->
+                        <!--<div class="way">-->
+                            <!--<a href="#"><img src="img/way_01.png" alt=""></a>-->
+                            <!--<a href="#"><img src="img/way_02.png" alt=""></a>-->
+                            <!--<a href="#"><img src="img/way_03.svg" alt=""></a>-->
+                            <!--<a href="#"><img src="img/way_04.svg" alt=""></a>-->
+                            <!--<a href="#"><img src="img/way_05.svg" alt=""></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="foot ">
+    <div class="foot_wrap">
+        <p class="aboutus"><a href="#">关于我们</a>
+            <a href="#">法律声明及隐私权政策</a>
+            <a href="#">联系我们</a>
+        </p>
+        <p class="copyright">一斗粮科技有限公司</p>
+        <p class="foot_botton"><a href=""><img src="img/foot_01.gif" alt=""></a> <a href=""><img src="img/foot_02.png"
+                                                                                                 alt=""></a> <a href="">蜀备案*************** 号</a></p>
+
+    </div>
+
+</div>
+
+<script src="js/libs/jquery-2.1.1.min.js"></script>
+<script>
+    $(function () {
+        $('.switch_body').hover(function () {
+            $('.switch_box i').attr("class", "glyphicon glyphicon-menu-up");
+        }, function () {
+            $('.switch_box i').attr("class", "glyphicon glyphicon-menu-down");
+        });
+    })
+    if (top != self) {
+        parent.location.href = '/login.html';
+    }
+
+    var token = localStorage.getItem("token");
+    if (token != null && token.trim().length != 0) {
+        $.ajax({
+            type : 'get',
+            url : '/users/current?token=' + token,
+            success : function(data) {
+                location.href = '/index.html';
+            },
+            error : function(xhr, textStatus, errorThrown) {
+                var msg = xhr.responseText;
+                var response = JSON.parse(msg);
+                var code = response.code;
+                var message = response.message;
+                if (code == 401) {
+                    localStorage.removeItem("token");
+                }
+            }
+        });
+    }
+
+    function login(obj) {
+        $(obj).attr("disabled", true);
+
+        var username = $.trim($('#username').val());
+        var password = $.trim($('#password').val());
+        if (username == "" || password == "") {
+            $("#info").html('用户名或者密码不能为空');
+            $(obj).attr("disabled", false);
+        } else {
+            $.ajax({
+                type : 'post',
+                url : '/login',
+                data : $("#login-form").serialize(),
+                success : function(data) {
+                    localStorage.setItem("token", data.token);
+                    location.href = '/index.html';
+                },
+                error : function(xhr, textStatus, errorThrown) {
+                    var msg = xhr.responseText;
+                    var response = JSON.parse(msg);
+                    $("#info").html(response.message);
+                    $(obj).attr("disabled", false);
+                }
+            });
+
+        }
+    }
+</script>
 
 </body>
-<script src="js/libs/jquery-2.1.1.min.js"></script>
-<script type="text/javascript">
-	if (top != self) {
-		parent.location.href = '/login.html';
-	}
-	
-	var token = localStorage.getItem("token");
-	if (token != null && token.trim().length != 0) {
-		$.ajax({
-			type : 'get',
-			url : '/users/current?token=' + token,
-			success : function(data) {
-				location.href = '/index.html';
-			},
-			error : function(xhr, textStatus, errorThrown) {
-				var msg = xhr.responseText;
-				var response = JSON.parse(msg);
-				var code = response.code;
-				var message = response.message;
-				if (code == 401) {
-					localStorage.removeItem("token");
-				}
-			}
-		});
-	}
-
-	function login(obj) {
-		$(obj).attr("disabled", true);
-
-		var username = $.trim($('#username').val());
-		var password = $.trim($('#password').val());
-		if (username == "" || password == "") {
-			$("#info").html('用户名或者密码不能为空');
-			$(obj).attr("disabled", false);
-		} else {
-			$.ajax({
-				type : 'post',
-				url : '/login',
-				data : $("#login-form").serialize(),
-				success : function(data) {
-					localStorage.setItem("token", data.token);
-					location.href = '/index.html';
-				},
-				error : function(xhr, textStatus, errorThrown) {
-					var msg = xhr.responseText;
-					var response = JSON.parse(msg);
-					$("#info").html(response.message);
-					$(obj).attr("disabled", false);
-				}
-			});
-
-		}
-	}
-</script>
 </html>
+

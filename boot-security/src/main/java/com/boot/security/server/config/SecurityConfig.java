@@ -19,9 +19,9 @@ import com.boot.security.server.filter.TokenFilter;
 
 /**
  * spring security配置
- * 
+ *
  * @author hebh
- * 
+ *
  *         2017年10月16日
  *
  */
