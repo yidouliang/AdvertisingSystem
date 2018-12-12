@@ -1,2 +1,1 @@
-# AdvertisingSystem
-广告系统
+# 一斗粮广告系统
