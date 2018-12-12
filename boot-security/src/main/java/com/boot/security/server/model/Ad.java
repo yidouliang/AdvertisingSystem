@@ -25,98 +25,128 @@ public class Ad extends BaseEntity<Long> {
 	public String getAssessorid() {
 		return assessorid;
 	}
-	public String setAssessorid() {
-		return assessorid;
+
+	public void setAssessorid(String assessorid) {
+		this.assessorid = assessorid;
 	}
+
 	public String getAssessorname() {
 		return assessorname;
 	}
-	public String setAssessorname() {
-		return assessorname;
+
+	public void setAssessorname(String assessorname) {
+		this.assessorname = assessorname;
 	}
+
 	public String getCompanyid() {
 		return companyid;
 	}
-	public String setCompanyid() {
-		return companyid;
+
+	public void setCompanyid(String companyid) {
+		this.companyid = companyid;
 	}
+
 	public String getCompanyname() {
 		return companyname;
 	}
-	public String setCompanyname() {
-		return companyname;
+
+	public void setCompanyname(String companyname) {
+		this.companyname = companyname;
 	}
+
 	public String getAdplayroleid() {
 		return adplayroleid;
 	}
-	public String setAdplayroleid() {
-		return adplayroleid;
+
+	public void setAdplayroleid(String adplayroleid) {
+		this.adplayroleid = adplayroleid;
 	}
+
 	public String getAdname() {
 		return adname;
 	}
-	public String setAdname() {
-		return adname;
+
+	public void setAdname(String adname) {
+		this.adname = adname;
 	}
+
 	public String getAdurl() {
 		return adurl;
 	}
-	public String setAdurl() {
-		return adurl;
+
+	public void setAdurl(String adurl) {
+		this.adurl = adurl;
 	}
+
 	public String getAdcoverurl() {
 		return adcoverurl;
 	}
-	public String setAdcoverurl() {
-		return adcoverurl;
+
+	public void setAdcoverurl(String adcoverurl) {
+		this.adcoverurl = adcoverurl;
 	}
+
 	public String getAdalt() {
 		return adalt;
 	}
-	public String setAdalt() {
-		return adalt;
+
+	public void setAdalt(String adalt) {
+		this.adalt = adalt;
 	}
+
 	public String getAdnote() {
 		return adnote;
 	}
-	public String setAdnote() {
-		return adnote;
+
+	public void setAdnote(String adnote) {
+		this.adnote = adnote;
 	}
+
 	public Integer getAdsort() {
 		return adsort;
 	}
-	public Integer setAdsort() {
-		return adsort;
+
+	public void setAdsort(Integer adsort) {
+		this.adsort = adsort;
 	}
+
 	public BigDecimal getAdprice() {
 		return adprice;
 	}
-	public BigDecimal setAdprice() {
-		return adprice;
+
+	public void setAdprice(BigDecimal adprice) {
+		this.adprice = adprice;
 	}
+
 	public Integer getAdduration() {
 		return adduration;
 	}
-	public Integer setAdduration() {
-		return adduration;
+
+	public void setAdduration(Integer adduration) {
+		this.adduration = adduration;
 	}
+
 	public Integer getDatastate() {
 		return datastate;
 	}
-	public Integer setDatastate() {
-		return datastate;
+
+	public void setDatastate(Integer datastate) {
+		this.datastate = datastate;
 	}
+
 	public Date getCreatetime() {
 		return createtime;
 	}
-	public Date setCreatetime() {
-		return createtime;
+
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
 	}
+
 	public Date getUpdatetime() {
 		return updatetime;
 	}
-	public Date setUpdatetime() {
-		return updatetime;
-	}
 
+	public void setUpdatetime(Date updatetime) {
+		this.updatetime = updatetime;
+	}
 }

@@ -9,21 +9,21 @@
 		<fieldset>
 			<input type="hidden" id="id" name="id">
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>boxcode</label>
+				<label class='col-md-2 control-label'>盒子编码</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='boxcode' type='text' name='boxcode' id='boxcode' data-bv-notempty='true' data-bv-notempty-message='boxcode 不能为空'>
+					<input class='form-control' placeholder='盒子编码' type='text' name='boxcode' id='boxcode' data-bv-notempty='true' data-bv-notempty-message='盒子编码 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>adsensetype</label>
+				<label class='col-md-2 control-label'>广告位类型</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='adsensetype' type='text' name='adsensetype' id='adsensetype' data-bv-notempty='true' data-bv-notempty-message='adsensetype 不能为空'>
+					<input class='form-control' placeholder='广告位类型' type='text' name='adsensetype' id='adsensetype' data-bv-notempty='true' data-bv-notempty-message='广告位类型 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>adsensestatus</label>
+				<label class='col-md-2 control-label'>广告状态</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='adsensestatus' type='text' name='adsensestatus' id='adsensestatus' data-bv-notempty='true' data-bv-notempty-message='adsensestatus 不能为空'>
+					<input class='form-control' placeholder='广告状态' type='text' name='adsensestatus' id='adsensestatus' data-bv-notempty='true' data-bv-notempty-message='广告状态 不能为空'>
 				</div>
 			</div>
 
@@ -52,9 +52,9 @@
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
-		
+
 		initData();
-		
+
 		function initData(){
 			var id = getUrlParam("id");
 			if(id != ""){
@@ -80,13 +80,13 @@
 		    if(!bootstrapValidator.isValid()){
 			   return;
 		    }
-		    
+
 		    var formdata = $("#form").serializeObject();
 
 			$.ajax({
 				type : 'put',
 				url : '/boxAdsenses',
-				contentType: "application/json; charset=utf-8",  
+				contentType: "application/json; charset=utf-8",
 				data : JSON.stringify(formdata),
 				success : function(data) {
 					layer.msg("修改成功", {shift: -1, time: 1000}, function(){
@@ -95,7 +95,7 @@
 				}
 			});
 		}
-		
+
 	</script>
 </body>
 </html>
