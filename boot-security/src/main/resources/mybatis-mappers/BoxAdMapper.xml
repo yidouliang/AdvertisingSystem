@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.BoxAdDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.boxcode != null and params.boxcode != ''">
+				and boxcode = #{params.boxcode} 
+			</if>
+			<if test="params.adid != null and params.adid != ''">
+				and adid = #{params.adid} 
+			</if>
+			<if test="params.adsensetype != null and params.adsensetype != ''">
+				and adsensetype = #{params.adsensetype} 
+			</if>
+			<if test="params.begintime != null and params.begintime != ''">
+				and begintime = #{params.begintime} 
+			</if>
+			<if test="params.endtime != null and params.endtime != ''">
+				and endtime = #{params.endtime} 
+			</if>
+			<if test="params.adplayroleid != null and params.adplayroleid != ''">
+				and adplayroleid = #{params.adplayroleid} 
+			</if>
+			<if test="params.satatus != null and params.satatus != ''">
+				and satatus = #{params.satatus} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from box_ad t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="BoxAd">
+		select * from box_ad t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update box_ad t
+		<set>
+			<if test="boxcode != null">
+				boxcode = #{boxcode}, 
+			</if>
+			<if test="adid != null">
+				adid = #{adid}, 
+			</if>
+			<if test="adsensetype != null">
+				adsensetype = #{adsensetype}, 
+			</if>
+			<if test="begintime != null">
+				begintime = #{begintime}, 
+			</if>
+			<if test="endtime != null">
+				endtime = #{endtime}, 
+			</if>
+			<if test="adplayroleid != null">
+				adplayroleid = #{adplayroleid}, 
+			</if>
+			<if test="satatus != null">
+				satatus = #{satatus}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.AdPlayTimeDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.begintime != null and params.begintime != ''">
+				and begintime = #{params.begintime} 
+			</if>
+			<if test="params.endtime != null and params.endtime != ''">
+				and endtime = #{params.endtime} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from ad_play_time t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="AdPlayTime">
+		select * from ad_play_time t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update ad_play_time t
+		<set>
+			<if test="begintime != null">
+				begintime = #{begintime}, 
+			</if>
+			<if test="endtime != null">
+				endtime = #{endtime}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>
