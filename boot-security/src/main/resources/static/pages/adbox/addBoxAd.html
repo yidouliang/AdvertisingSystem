@@ -8,45 +8,45 @@
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>boxcode</label>
+				<label class='col-md-2 control-label'>盒子编号</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='boxcode' type='text' name='boxcode' id='boxcode' data-bv-notempty='true' data-bv-notempty-message='boxcode 不能为空'>
+					<input class='form-control' placeholder='盒子编号' type='text' name='boxcode' id='boxcode' data-bv-notempty='true' data-bv-notempty-message='盒子编号 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>adid</label>
+				<label class='col-md-2 control-label'>广告ID</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='adid' type='text' name='adid' id='adid' data-bv-notempty='true' data-bv-notempty-message='adid 不能为空'>
+					<input class='form-control' placeholder='广告ID' type='text' name='adid' id='adid' data-bv-notempty='true' data-bv-notempty-message='广告ID 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>adsensetype</label>
+				<label class='col-md-2 control-label'>广告位的类型</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='adsensetype' type='text' name='adsensetype' id='adsensetype' data-bv-notempty='true' data-bv-notempty-message='adsensetype 不能为空'>
+					<input class='form-control' placeholder='广告位的类型' type='text' name='adsensetype' id='adsensetype' data-bv-notempty='true' data-bv-notempty-message='广告位的类型 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>begintime</label>
+				<label class='col-md-2 control-label'>广告开始播放时间</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='begintime' type='text' name='begintime' id='begintime' data-bv-notempty='true' data-bv-notempty-message='begintime 不能为空'>
+					<input class='form-control' placeholder='广告开始播放时间' type='text' name='begintime' id='begintime' data-bv-notempty='true' data-bv-notempty-message='广告开始播放时间 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>endtime</label>
+				<label class='col-md-2 control-label'>广告结束时间</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='endtime' type='text' name='endtime' id='endtime' data-bv-notempty='true' data-bv-notempty-message='endtime 不能为空'>
+					<input class='form-control' placeholder='广告结束时间' type='text' name='endtime' id='endtime' data-bv-notempty='true' data-bv-notempty-message='广告结束时间 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>adplayroleid</label>
+				<label class='col-md-2 control-label'>广告播放规则Id</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='adplayroleid' type='text' name='adplayroleid' id='adplayroleid' data-bv-notempty='true' data-bv-notempty-message='adplayroleid 不能为空'>
+					<input class='form-control' placeholder='广告播放规则Id' type='text' name='adplayroleid' id='adplayroleid' data-bv-notempty='true' data-bv-notempty-message='广告播放规则Id 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>satatus</label>
+				<label class='col-md-2 control-label'>状态</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='satatus' type='text' name='satatus' id='satatus' data-bv-notempty='true' data-bv-notempty-message='satatus 不能为空'>
+					<input class='form-control' placeholder='状态' type='text' name='satatus' id='satatus' data-bv-notempty='true' data-bv-notempty-message='状态 不能为空'>
 				</div>
 			</div>
 
@@ -74,7 +74,7 @@
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
-		
+
 		function add() {
 			$('#form').bootstrapValidator();
 			var bootstrapValidator = $("#form").data('bootstrapValidator');
@@ -82,13 +82,13 @@
 		    if(!bootstrapValidator.isValid()){
 			   return;
 		    }
-		    
+
 		    var formdata = $("#form").serializeObject();
 
 			$.ajax({
 				type : 'post',
 				url : '/boxAds',
-				contentType: "application/json; charset=utf-8",  
+				contentType: "application/json; charset=utf-8",
 				data : JSON.stringify(formdata),
 				success : function(data) {
 					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
@@ -97,7 +97,7 @@
 				}
 			});
 		}
-		
+
 	</script>
 </body>
 </html>

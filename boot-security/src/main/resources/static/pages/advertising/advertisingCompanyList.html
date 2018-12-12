@@ -29,28 +29,28 @@
                                       <i class="layui-icon">&#xe608;</i> 添加
                                     </button>
 	                   			</td>
-	                   		</tr> 
+	                   		</tr>
 	                    </table>
 					</div>
                 </header>
-                
+
                 <div>
                     <div class="widget-body no-padding">
                         <table id="dt-table" class="table table-striped table-bordered table-hover" style="width:100%">
                             <thead>
                                 <tr>
-                                </tr>                       
+                                </tr>
                                 <tr>
 									<th>id</th>
-									<th>companyname</th>
-									<th>address</th>
-									<th>registrationdate</th>
-									<th>chairman</th>
-									<th>email</th>
-									<th>phone</th>
-									<th>businessscope</th>
-									<th>staffsize</th>
-									<th>companycode</th>
+									<th>广告公司(媒体)名称</th>
+									<th>公司地址</th>
+									<th>公司注册时间</th>
+									<th>公司现任董事长</th>
+									<th>公司邮箱地址</th>
+									<th>公司联系电话</th>
+									<th>公司经营范围</th>
+									<th>公司经营范围</th>
+									<th>公司人员规模</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -76,7 +76,7 @@ var pers = checkPermission();
 
 var example;
 function init(){
-	example = 
+	example =
     	$('#dt-table').DataTable({
         	"searching": false,
         	"processing": false,
@@ -88,7 +88,7 @@ function init(){
     				d.id = $("#id").val();
     			}
         	},
-        	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
+        	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",
             "columns": [
 				{"data" : "id", "defaultContent" : ""},
 				{"data" : "companyname", "defaultContent" : ""},
@@ -100,8 +100,8 @@ function init(){
 				{"data" : "businessscope", "defaultContent" : ""},
 				{"data" : "staffsize", "defaultContent" : ""},
 				{"data" : "companycode", "defaultContent" : ""},
-				{ 
-								"data": "", 
+				{
+								"data": "",
 								"defaultContent": "",
 								"orderable":false,
 						        "render": function (data, type, row) {
@@ -110,9 +110,9 @@ function init(){
                                    var edit = buttonEdit(href, "", pers);
                 		           var del = buttonDel(id, "", pers);
                                    return edit + del;
-                  	            }		
+                  	            }
 							},
-                
+
             ],
            "order": [[ 0, "asc" ]]
         } );
@@ -134,7 +134,7 @@ function del(id){
                 layer.msg("删除成功");
             }
         });
-        
+
         layer.close(1);
     });
 }

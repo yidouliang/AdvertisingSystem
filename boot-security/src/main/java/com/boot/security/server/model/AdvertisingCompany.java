@@ -68,5 +68,4 @@ public class AdvertisingCompany extends BaseEntity<Long> {
 	public String setCompanycode() {
 		return companycode;
 	}
-
 }

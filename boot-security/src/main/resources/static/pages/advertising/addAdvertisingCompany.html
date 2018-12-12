@@ -8,57 +8,57 @@
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>companyname</label>
+				<label class='col-md-2 control-label'>广告公司(媒体)名称</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='companyname' type='text' name='companyname' id='companyname' data-bv-notempty='true' data-bv-notempty-message='companyname 不能为空'>
+					<input class='form-control' placeholder='广告公司(媒体)名称' type='text' name='companyname' id='companyname' data-bv-notempty='true' data-bv-notempty-message='广告公司(媒体)名称 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>address</label>
+				<label class='col-md-2 control-label'>公司地址</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='address' type='text' name='address' id='address' data-bv-notempty='true' data-bv-notempty-message='address 不能为空'>
+					<input class='form-control' placeholder='公司地址' type='text' name='address' id='address' data-bv-notempty='true' data-bv-notempty-message='公司地址 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>registrationdate</label>
+				<label class='col-md-2 control-label'>公司注册时间</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='registrationdate' type='text' name='registrationdate' id='registrationdate' data-bv-notempty='true' data-bv-notempty-message='registrationdate 不能为空'>
+					<input class='form-control' placeholder='公司注册时间' type='text' name='registrationdate' id='registrationdate' data-bv-notempty='true' data-bv-notempty-message='公司注册时间 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>chairman</label>
+				<label class='col-md-2 control-label'>公司现任董事长</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='chairman' type='text' name='chairman' id='chairman' data-bv-notempty='true' data-bv-notempty-message='chairman 不能为空'>
+					<input class='form-control' placeholder='公司现任董事长' type='text' name='chairman' id='chairman' data-bv-notempty='true' data-bv-notempty-message='公司现任董事长 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>email</label>
+				<label class='col-md-2 control-label'>公司邮箱地址</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='email' type='text' name='email' id='email' data-bv-notempty='true' data-bv-notempty-message='email 不能为空'>
+					<input class='form-control' placeholder='公司邮箱地址' type='text' name='email' id='email' data-bv-notempty='true' data-bv-notempty-message='公司邮箱地址 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>phone</label>
+				<label class='col-md-2 control-label'>公司联系电话</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='phone' type='text' name='phone' id='phone' data-bv-notempty='true' data-bv-notempty-message='phone 不能为空'>
+					<input class='form-control' placeholder='公司联系电话' type='text' name='phone' id='phone' data-bv-notempty='true' data-bv-notempty-message='公司联系电话 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>businessscope</label>
+				<label class='col-md-2 control-label'>公司经营范围</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='businessscope' type='text' name='businessscope' id='businessscope' data-bv-notempty='true' data-bv-notempty-message='businessscope 不能为空'>
+					<input class='form-control' placeholder='公司经营范围' type='text' name='businessscope' id='businessscope' data-bv-notempty='true' data-bv-notempty-message='公司经营范围 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>staffsize</label>
+				<label class='col-md-2 control-label'>公司经营范围</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='staffsize' type='text' name='staffsize' id='staffsize' data-bv-notempty='true' data-bv-notempty-message='staffsize 不能为空'>
+					<input class='form-control' placeholder='公司经营范围' type='text' name='staffsize' id='staffsize' data-bv-notempty='true' data-bv-notempty-message='公司经营范围 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>companycode</label>
+				<label class='col-md-2 control-label'>公司人员规模</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='companycode' type='text' name='companycode' id='companycode' data-bv-notempty='true' data-bv-notempty-message='companycode 不能为空'>
+					<input class='form-control' placeholder='公司人员规模' type='text' name='companycode' id='companycode' data-bv-notempty='true' data-bv-notempty-message='公司人员规模 不能为空'>
 				</div>
 			</div>
 
@@ -86,7 +86,7 @@
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
-		
+
 		function add() {
 			$('#form').bootstrapValidator();
 			var bootstrapValidator = $("#form").data('bootstrapValidator');
@@ -94,13 +94,13 @@
 		    if(!bootstrapValidator.isValid()){
 			   return;
 		    }
-		    
+
 		    var formdata = $("#form").serializeObject();
 
 			$.ajax({
 				type : 'post',
 				url : '/advertisingCompanys',
-				contentType: "application/json; charset=utf-8",  
+				contentType: "application/json; charset=utf-8",
 				data : JSON.stringify(formdata),
 				success : function(data) {
 					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
@@ -109,7 +109,7 @@
 				}
 			});
 		}
-		
+
 	</script>
 </body>
 </html>
