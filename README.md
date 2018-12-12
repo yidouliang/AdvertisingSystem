@@ -1,2 +1,1 @@
-# AdvertisingSystem
-广告系统
+# 广告系统
