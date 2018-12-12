@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>companyname</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='companyname' type='text' name='companyname' id='companyname' data-bv-notempty='true' data-bv-notempty-message='companyname 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>address</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='address' type='text' name='address' id='address' data-bv-notempty='true' data-bv-notempty-message='address 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>registrationdate</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='registrationdate' type='text' name='registrationdate' id='registrationdate' data-bv-notempty='true' data-bv-notempty-message='registrationdate 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>chairman</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='chairman' type='text' name='chairman' id='chairman' data-bv-notempty='true' data-bv-notempty-message='chairman 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>email</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='email' type='text' name='email' id='email' data-bv-notempty='true' data-bv-notempty-message='email 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>phone</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='phone' type='text' name='phone' id='phone' data-bv-notempty='true' data-bv-notempty-message='phone 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>businessscope</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='businessscope' type='text' name='businessscope' id='businessscope' data-bv-notempty='true' data-bv-notempty-message='businessscope 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>staffsize</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='staffsize' type='text' name='staffsize' id='staffsize' data-bv-notempty='true' data-bv-notempty-message='staffsize 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>companycode</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='companycode' type='text' name='companycode' id='companycode' data-bv-notempty='true' data-bv-notempty-message='companycode 不能为空'>
+				</div>
+			</div>
+
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='advertisingCompanyList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'post',
+				url : '/advertisingCompanys',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "advertisingCompanyList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

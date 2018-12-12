@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>boxname</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='boxname' type='text' name='boxname' id='boxname' data-bv-notempty='true' data-bv-notempty-message='boxname 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>boxcode</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='boxcode' type='text' name='boxcode' id='boxcode' data-bv-notempty='true' data-bv-notempty-message='boxcode 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>boxtype</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='boxtype' type='text' name='boxtype' id='boxtype' data-bv-notempty='true' data-bv-notempty-message='boxtype 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>boxperson</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='boxperson' type='text' name='boxperson' id='boxperson' data-bv-notempty='true' data-bv-notempty-message='boxperson 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>address</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='address' type='text' name='address' id='address' data-bv-notempty='true' data-bv-notempty-message='address 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>status</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='status' type='text' name='status' id='status' data-bv-notempty='true' data-bv-notempty-message='status 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>factorydate</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='factorydate' type='text' name='factorydate' id='factorydate' data-bv-notempty='true' data-bv-notempty-message='factorydate 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>persontelphone</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='persontelphone' type='text' name='persontelphone' id='persontelphone' data-bv-notempty='true' data-bv-notempty-message='persontelphone 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>longitude</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='longitude' type='text' name='longitude' id='longitude' data-bv-notempty='true' data-bv-notempty-message='longitude 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>latitude</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='latitude' type='text' name='latitude' id='latitude' data-bv-notempty='true' data-bv-notempty-message='latitude 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>areaid</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='areaid' type='text' name='areaid' id='areaid' data-bv-notempty='true' data-bv-notempty-message='areaid 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>areaname</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='areaname' type='text' name='areaname' id='areaname' data-bv-notempty='true' data-bv-notempty-message='areaname 不能为空'>
+				</div>
+			</div>
+
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='adMktBoxList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'post',
+				url : '/adMktBoxs',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "adMktBoxList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

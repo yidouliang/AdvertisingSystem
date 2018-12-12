@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>boxcode</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='boxcode' type='text' name='boxcode' id='boxcode' data-bv-notempty='true' data-bv-notempty-message='boxcode 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>adid</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='adid' type='text' name='adid' id='adid' data-bv-notempty='true' data-bv-notempty-message='adid 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>adsensetype</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='adsensetype' type='text' name='adsensetype' id='adsensetype' data-bv-notempty='true' data-bv-notempty-message='adsensetype 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>playdate</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='playdate' type='text' name='playdate' id='playdate' data-bv-notempty='true' data-bv-notempty-message='playdate 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>adcount</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='adcount' type='text' name='adcount' id='adcount' data-bv-notempty='true' data-bv-notempty-message='adcount 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>adplayroleid</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='adplayroleid' type='text' name='adplayroleid' id='adplayroleid' data-bv-notempty='true' data-bv-notempty-message='adplayroleid 不能为空'>
+				</div>
+			</div>
+
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='adRecordList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'post',
+				url : '/adRecords',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "adRecordList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

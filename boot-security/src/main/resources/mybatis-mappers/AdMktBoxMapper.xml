@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.AdMktBoxDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.boxname != null and params.boxname != ''">
+				and boxname = #{params.boxname} 
+			</if>
+			<if test="params.boxcode != null and params.boxcode != ''">
+				and boxcode = #{params.boxcode} 
+			</if>
+			<if test="params.boxtype != null and params.boxtype != ''">
+				and boxtype = #{params.boxtype} 
+			</if>
+			<if test="params.boxperson != null and params.boxperson != ''">
+				and boxperson = #{params.boxperson} 
+			</if>
+			<if test="params.address != null and params.address != ''">
+				and address = #{params.address} 
+			</if>
+			<if test="params.status != null and params.status != ''">
+				and status = #{params.status} 
+			</if>
+			<if test="params.factorydate != null and params.factorydate != ''">
+				and factorydate = #{params.factorydate} 
+			</if>
+			<if test="params.persontelphone != null and params.persontelphone != ''">
+				and persontelphone = #{params.persontelphone} 
+			</if>
+			<if test="params.longitude != null and params.longitude != ''">
+				and longitude = #{params.longitude} 
+			</if>
+			<if test="params.latitude != null and params.latitude != ''">
+				and latitude = #{params.latitude} 
+			</if>
+			<if test="params.areaid != null and params.areaid != ''">
+				and areaid = #{params.areaid} 
+			</if>
+			<if test="params.areaname != null and params.areaname != ''">
+				and areaname = #{params.areaname} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from ad_mkt_box t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="AdMktBox">
+		select * from ad_mkt_box t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update ad_mkt_box t
+		<set>
+			<if test="boxname != null">
+				boxname = #{boxname}, 
+			</if>
+			<if test="boxcode != null">
+				boxcode = #{boxcode}, 
+			</if>
+			<if test="boxtype != null">
+				boxtype = #{boxtype}, 
+			</if>
+			<if test="boxperson != null">
+				boxperson = #{boxperson}, 
+			</if>
+			<if test="address != null">
+				address = #{address}, 
+			</if>
+			<if test="status != null">
+				status = #{status}, 
+			</if>
+			<if test="factorydate != null">
+				factorydate = #{factorydate}, 
+			</if>
+			<if test="persontelphone != null">
+				persontelphone = #{persontelphone}, 
+			</if>
+			<if test="longitude != null">
+				longitude = #{longitude}, 
+			</if>
+			<if test="latitude != null">
+				latitude = #{latitude}, 
+			</if>
+			<if test="areaid != null">
+				areaid = #{areaid}, 
+			</if>
+			<if test="areaname != null">
+				areaname = #{areaname}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>
