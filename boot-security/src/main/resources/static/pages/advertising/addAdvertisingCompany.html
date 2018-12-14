@@ -87,6 +87,16 @@
 		    var layer = layui.layer;
 		});
 
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+
+            laydate.render({
+                elem: '#registrationdate',
+                type: 'datetime'
+            });
+
+        });
+
 		function add() {
 			$('#form').bootstrapValidator();
 			var bootstrapValidator = $("#form").data('bootstrapValidator');
