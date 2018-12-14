@@ -6,57 +6,57 @@
 	<sql id="where">
 		<where>
 			<if test="params.id != null and params.id != ''">
-				and id = #{params.id} 
+				and id = #{params.id}
 			</if>
 			<if test="params.assessorid != null and params.assessorid != ''">
-				and assessorid = #{params.assessorid} 
+				and assessorid = #{params.assessorid}
 			</if>
 			<if test="params.assessorname != null and params.assessorname != ''">
-				and assessorname = #{params.assessorname} 
+				and assessorname = #{params.assessorname}
 			</if>
 			<if test="params.companyid != null and params.companyid != ''">
-				and companyid = #{params.companyid} 
+				and companyid = #{params.companyid}
 			</if>
 			<if test="params.companyname != null and params.companyname != ''">
-				and companyname = #{params.companyname} 
+				and companyname = #{params.companyname}
 			</if>
 			<if test="params.adplayroleid != null and params.adplayroleid != ''">
-				and adplayroleid = #{params.adplayroleid} 
+				and adplayroleid = #{params.adplayroleid}
 			</if>
 			<if test="params.adname != null and params.adname != ''">
-				and adname = #{params.adname} 
+				and adname = #{params.adname}
 			</if>
 			<if test="params.adurl != null and params.adurl != ''">
-				and adurl = #{params.adurl} 
+				and adurl = #{params.adurl}
 			</if>
 			<if test="params.adcoverurl != null and params.adcoverurl != ''">
-				and adcoverurl = #{params.adcoverurl} 
+				and adcoverurl = #{params.adcoverurl}
 			</if>
 			<if test="params.adalt != null and params.adalt != ''">
-				and adalt = #{params.adalt} 
+				and adalt = #{params.adalt}
 			</if>
 			<if test="params.adnote != null and params.adnote != ''">
-				and adnote = #{params.adnote} 
+				and adnote = #{params.adnote}
 			</if>
 			<if test="params.adsort != null and params.adsort != ''">
-				and adsort = #{params.adsort} 
+				and adsort = #{params.adsort}
 			</if>
 			<if test="params.adprice != null and params.adprice != ''">
-				and adprice = #{params.adprice} 
+				and adprice = #{params.adprice}
 			</if>
 			<if test="params.adduration != null and params.adduration != ''">
-				and adduration = #{params.adduration} 
+				and adduration = #{params.adduration}
 			</if>
 			<if test="params.datastate != null and params.datastate != ''">
-				and datastate = #{params.datastate} 
+				and datastate = #{params.datastate}
 			</if>
 			<if test="params.createtime != null and params.createtime != ''">
-				and createtime = #{params.createtime} 
+				and createtime = #{params.createtime}
 			</if>
 			<if test="params.updatetime != null and params.updatetime != ''">
-				and updatetime = #{params.updatetime} 
+				and updatetime = #{params.updatetime}
 			</if>
-		
+			datastate = 1
 		</where>
 	</sql>
 
@@ -76,52 +76,52 @@
 		update ad t
 		<set>
 			<if test="assessorid != null">
-				assessorid = #{assessorid}, 
+				assessorid = #{assessorid},
 			</if>
 			<if test="assessorname != null">
-				assessorname = #{assessorname}, 
+				assessorname = #{assessorname},
 			</if>
 			<if test="companyid != null">
-				companyid = #{companyid}, 
+				companyid = #{companyid},
 			</if>
 			<if test="companyname != null">
-				companyname = #{companyname}, 
+				companyname = #{companyname},
 			</if>
 			<if test="adplayroleid != null">
-				adplayroleid = #{adplayroleid}, 
+				adplayroleid = #{adplayroleid},
 			</if>
 			<if test="adname != null">
-				adname = #{adname}, 
+				adname = #{adname},
 			</if>
 			<if test="adurl != null">
-				adurl = #{adurl}, 
+				adurl = #{adurl},
 			</if>
 			<if test="adcoverurl != null">
-				adcoverurl = #{adcoverurl}, 
+				adcoverurl = #{adcoverurl},
 			</if>
 			<if test="adalt != null">
-				adalt = #{adalt}, 
+				adalt = #{adalt},
 			</if>
 			<if test="adnote != null">
-				adnote = #{adnote}, 
+				adnote = #{adnote},
 			</if>
 			<if test="adsort != null">
-				adsort = #{adsort}, 
+				adsort = #{adsort},
 			</if>
 			<if test="adprice != null">
-				adprice = #{adprice}, 
+				adprice = #{adprice},
 			</if>
 			<if test="adduration != null">
-				adduration = #{adduration}, 
+				adduration = #{adduration},
 			</if>
 			<if test="datastate != null">
-				datastate = #{datastate}, 
+				datastate = #{datastate},
 			</if>
 			<if test="createtime != null">
-				createtime = #{createtime}, 
+				createtime = #{createtime},
 			</if>
 			<if test="updatetime != null">
-				updatetime = #{updatetime}, 
+				updatetime = #{updatetime},
 			</if>
 
 		</set>

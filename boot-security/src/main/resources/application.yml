@@ -24,8 +24,8 @@ spring:
     time-zone: GMT+8
   http:
     multipart:
-      max-file-size: 100MB
-      max-request-size: 100MB
+      max-file-size: 1000MB
+      max-request-size: 1000MB
   mvc:
     servlet:
       load-on-startup: 1
@@ -59,3 +59,4 @@ token:
     seconds: 7200
 server:
   port: 9091
+

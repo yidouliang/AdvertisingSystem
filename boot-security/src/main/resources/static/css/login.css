@@ -4,14 +4,14 @@
   }
 h1,h2,h3,h4{
     font-weight: normal;
-   
+
 }
 
 ul,li{
     list-style: none ;
 }
 a,a:hover,a:link,a:visited,a:active{
-    
+
     text-decoration: none;
     color: #000;
 }
@@ -23,7 +23,7 @@ a,a:hover,a:link,a:visited,a:active{
 }
 html{
     background:  #373d41;
-   
+
 }
 body{
     overflow: hidden;
@@ -44,10 +44,10 @@ body{
     float: right;
     height: 60px;
     line-height: 60px;
-    
+
     color: #fff;
     text-align: center;
-   
+
 
 }
 
@@ -58,9 +58,9 @@ body{
     font-size: 14px;
     color: #fff;
     display: inline-block;
-   
+
     text-decoration: none;
-   
+
 }
 .head .first_page>li a:hover{
     color: #00c1de;
@@ -69,7 +69,7 @@ body{
 .switch_body{
     float: right;
     width: 108px;
-   
+
     font-size: 14px;
     color: #fff;
 }
@@ -94,13 +94,13 @@ body{
     top: 1px;
 }
 .switch_body ul{
-   
-   
+
+
    text-align: center;
    display: none;
    background-color: #272B2F;
    margin-bottom: 0px;
-  
+
 }
 .switch_body:hover ul{
     display: block;
@@ -123,10 +123,10 @@ body{
 
 
 .content{
-    
-   
+
+
     padding: 74px 0 118px;
-    background: url(img/bg.jpg) no-repeat center 23%;
+    background: url(../img/login/bg.jpg) no-repeat center 23%;
     background-size: cover;
     background-color: #1F2325;
 }
@@ -151,7 +151,7 @@ body{
 }
 .content_wrap a h1{
     font-size: 30px;
-   
+
     line-height: 36px;
     margin-bottom: 19px;
     font-weight: bold;
@@ -189,8 +189,8 @@ body{
     font-weight: 400;
     padding: 5px 10px;
     border: 1px solid #00c1de;
-    
-   
+
+
 }
 .content_wrap .right .right_wrap .top i{
     position: absolute;
@@ -226,7 +226,7 @@ body{
     color: #fff;
     width: 100%;
     cursor: pointer;
-   
+
 }
 .content_wrap .right .right_wrap .box .forget{
     margin-top: 10px;
@@ -262,7 +262,7 @@ body{
     height: 22px;
     display: inline-block;
     margin-right: 10px;
-   
+
 }
 .content_wrap .right .right_wrap .box .way a img{
     width: 100%;
@@ -285,7 +285,7 @@ body{
     padding-top: 40px;
     color: #73777a;
     font-size: 14px;
-    
+
 }
 .foot .foot_wrap .aboutus a{
     font-size: 16px;
@@ -294,7 +294,7 @@ body{
     transition: color .3s;
     box-sizing: border-box;
     text-decoration: none;
-   
+
 }
 .foot .foot_wrap .aboutus a:hover{
     color: #00c1de;

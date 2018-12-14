@@ -40,4 +40,7 @@ public interface UserDao {
 	int saveUserRoles(@Param("userId") Long userId, @Param("roleIds") List<Long> roleIds);
 
 	int update(SysUser user);
+
+	@Select("select id ,username from sys_user")
+	List<Map<Long, Object>> getIdAndName();
 }

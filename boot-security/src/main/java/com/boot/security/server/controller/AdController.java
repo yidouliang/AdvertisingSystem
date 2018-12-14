@@ -1,5 +1,6 @@
 package com.boot.security.server.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,10 @@ public class AdController {
     @PostMapping
     @ApiOperation(value = "保存")
     public Ad save(@RequestBody Ad ad) {
+
+        ad.setDatastate(1);
+        ad.setCreatetime(new Date());
+        ad.setUpdatetime(ad.getCreateTime());
         adDao.save(ad);
 
         return ad;
