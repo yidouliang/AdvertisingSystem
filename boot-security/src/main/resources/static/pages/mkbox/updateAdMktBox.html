@@ -104,11 +104,17 @@
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript">
 		layui.use(['layer','laydate'], function(){
-		    var layer = layui.layer;
+            var layer = layui.layer;
+            var laydate = layui.laydate;
+
+            laydate.render({
+                elem: '#factorydate',
+                type: 'datetime'
+            });
 		});
-		
+
 		initData();
-		
+
 		function initData(){
 			var id = getUrlParam("id");
 			if(id != ""){
@@ -143,13 +149,13 @@
 		    if(!bootstrapValidator.isValid()){
 			   return;
 		    }
-		    
+
 		    var formdata = $("#form").serializeObject();
 
 			$.ajax({
 				type : 'put',
 				url : '/adMktBoxs',
-				contentType: "application/json; charset=utf-8",  
+				contentType: "application/json; charset=utf-8",
 				data : JSON.stringify(formdata),
 				success : function(data) {
 					layer.msg("修改成功", {shift: -1, time: 1000}, function(){
@@ -158,7 +164,7 @@
 				}
 			});
 		}
-		
+
 	</script>
 </body>
 </html>

@@ -24,22 +24,22 @@
 										</div>
 									</form>
 	                   			</td>
-	                   			<td align="right">
-	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addAdRecord.html'">
-                                      <i class="layui-icon">&#xe608;</i> 添加
-                                    </button>
-	                   			</td>
-	                   		</tr> 
+	                   			<!--<td align="right">-->
+	                   				<!--<button class="layui-btn layui-btn-sm" onclick="location.href='addAdRecord.html'">-->
+                                      <!--<i class="layui-icon">&#xe608;</i> 添加-->
+                                    <!--</button>-->
+	                   			<!--</td>-->
+	                   		</tr>
 	                    </table>
 					</div>
                 </header>
-                
+
                 <div>
                     <div class="widget-body no-padding">
                         <table id="dt-table" class="table table-striped table-bordered table-hover" style="width:100%">
                             <thead>
                                 <tr>
-                                </tr>                       
+                                </tr>
                                 <tr>
 									<th>id</th>
 									<th>盒子code</th>
@@ -73,7 +73,7 @@ var pers = checkPermission();
 
 var example;
 function init(){
-	example = 
+	example =
     	$('#dt-table').DataTable({
         	"searching": false,
         	"processing": false,
@@ -85,7 +85,7 @@ function init(){
     				d.id = $("#id").val();
     			}
         	},
-        	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
+        	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",
             "columns": [
 				{"data" : "id", "defaultContent" : ""},
 				{"data" : "boxcode", "defaultContent" : ""},
@@ -94,19 +94,19 @@ function init(){
 				{"data" : "playdate", "defaultContent" : ""},
 				{"data" : "adcount", "defaultContent" : ""},
 				{"data" : "adplayroleid", "defaultContent" : ""},
-				{ 
-								"data": "", 
+				{
+								"data": "",
 								"defaultContent": "",
 								"orderable":false,
 						        "render": function (data, type, row) {
                 		           var id = row['id'];
                 		           var href = "updateAdRecord.html?id=" + id;
-                                   var edit = buttonEdit(href, "", pers);
+                                   // var edit = buttonEdit(href, "", pers);
                 		           var del = buttonDel(id, "", pers);
-                                   return edit + del;
-                  	            }		
+                                   return  del;
+                  	            }
 							},
-                
+
             ],
            "order": [[ 0, "asc" ]]
         } );
@@ -128,7 +128,7 @@ function del(id){
                 layer.msg("删除成功");
             }
         });
-        
+
         layer.close(1);
     });
 }

@@ -51,6 +51,7 @@ public class AdController {
     @PutMapping
     @ApiOperation(value = "修改")
     public Ad update(@RequestBody Ad ad) {
+        ad.setUpdatetime(new Date());
         adDao.update(ad);
 
         return ad;

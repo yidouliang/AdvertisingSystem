@@ -2,34 +2,64 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<input type="hidden" id="id" name="id">
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>审核人员ID</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='审核人员ID' type='text' name='assessorid' id='assessorid' data-bv-notempty='true' data-bv-notempty-message='审核人员ID 不能为空'>
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>审核人员ID</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='审核人员ID' type='text' name='assessorid' id='assessorid' data-bv-notempty='true' data-bv-notempty-message='审核人员ID 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>审核人员名称</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='审核人员名称' type='text' name='assessorname' id='assessorname' data-bv-notempty='true' data-bv-notempty-message='审核人员名称 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
+			<div class="form-group">
+				<label class="col-md-2 control-label">审核人员</label>
+				<div class="col-md-10">
+					<select class="form-control input-sm" name="assessorid" id="assessorid" onchange="setAName()">
+					</select>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>审核人员名称</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='审核人员名称' type='text' name='assessorname' id='assessorname' data-bv-notempty='true' data-bv-notempty-message='审核人员名称 不能为空'>
+			<!--<label class='col-md-2 control-label'>审核人员ID</label>-->
+			<!--<div class='col-md-10'>-->
+			<!--<input class='form-control' placeholder='审核人员ID' type='text' name='assessorid' id='assessorid' data-bv-notempty='true' data-bv-notempty-message='审核人员ID 不能为空'>-->
+			<!--</div>-->
+			<div class="form-group" style="display: none">
+				<div class='col-md-10' >
+					<input class='form-control' placeholder='审核人员名称' type='text' name='assessorname' id='assessorname' data-bv-notempty='true' data-bv-notempty-message='审核人员ID 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>广告提供给商ID</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='广告提供给商ID' type='text' name='companyid' id='companyid' data-bv-notempty='true' data-bv-notempty-message='广告提供给商ID 不能为空'>
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>广告提供给商ID</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='广告提供给商ID' type='text' name='companyid' id='companyid' data-bv-notempty='true' data-bv-notempty-message='广告提供给商ID 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>广告提供商名称</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='广告提供商名称' type='text' name='companyname' id='companyname' data-bv-notempty='true' data-bv-notempty-message='广告提供商名称 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
+			<div class="form-group">
+				<label class="col-md-2 control-label">广告提供给商</label>
+				<div class="col-md-10">
+					<select class="form-control input-sm" name="companyid" id="companyid" onchange="setCName()">
+					</select>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>广告提供商名称</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='广告提供商名称' type='text' name='companyname' id='companyname' data-bv-notempty='true' data-bv-notempty-message='广告提供商名称 不能为空'>
+
+			<div class="form-group" style="display: none">
+				<div class='col-md-10' >
+					<input class='form-control' placeholder='广告提供给商名称' type='text' name='companyname' id='companyname' data-bv-notempty='true' data-bv-notempty-message='审核人员ID 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
@@ -45,10 +75,22 @@
 				</div>
 			</div>
 			<div class='form-group'>
+				<label class='col-md-2 control-label'>广告视频上传</label>
+				<button type="button" class="layui-btn col-md-2" id="videoupload">
+					<i class="layui-icon">&#xe67c; 上传</i>
+				</button>
+			</div>
+			<div class='form-group'>
 				<label class='col-md-2 control-label'>广告URL</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='广告URL' type='text' name='adurl' id='adurl' data-bv-notempty='true' data-bv-notempty-message='广告URL 不能为空'>
 				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>封面图片上传</label>
+				<button type="button" class="layui-btn col-md-2" id="adcoverupload">
+					<i class="layui-icon">&#xe67c; 上传</i>
+				</button>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>广告封面URL</label>
@@ -86,24 +128,24 @@
 					<input class='form-control' placeholder='广告时长' type='text' name='adduration' id='adduration' data-bv-notempty='true' data-bv-notempty-message='广告时长 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>数据状态</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='数据状态' type='text' name='datastate' id='datastate' data-bv-notempty='true' data-bv-notempty-message='数据状态 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>创建时间</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='创建时间' type='text' name='createtime' id='createtime' data-bv-notempty='true' data-bv-notempty-message='创建时间 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>更新时间</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='更新时间' type='text' name='updatetime' id='updatetime' data-bv-notempty='true' data-bv-notempty-message='更新时间 不能为空'>
-				</div>
-			</div>
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>数据状态</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='数据状态' type='text' name='datastate' id='datastate' data-bv-notempty='true' data-bv-notempty-message='数据状态 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>创建时间</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='创建时间' type='text' name='createtime' id='createtime' data-bv-notempty='true' data-bv-notempty-message='创建时间 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>更新时间</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='更新时间' type='text' name='updatetime' id='updatetime' data-bv-notempty='true' data-bv-notempty-message='更新时间 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
 
 
 
@@ -126,14 +168,62 @@
 	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript" src="../../js/idAndName.js"></script>
 	<script type="text/javascript">
-		layui.use(['layer','laydate'], function(){
+		layui.use(['layer','laydate','upload'], function(){
 		    var layer = layui.layer;
+            var upload = layui.upload;
+
+            var uploadVideo = upload.render({
+                elem: '#videoupload' //绑定元素
+                ,url: '/upload' //上传接口
+                ,accept: 'file' //允许上传的文件类型
+                ,field: "ftpFile"
+                ,done: function(res, index, upload){
+                    //上传完毕回调
+                    layer.msg("上传成功");
+                    console.log(res)
+                    $("#adurl").attr("value",res.data)
+                },error: function(res){
+                    //请求异常回调
+                    layer.msg("上传失败");
+                    console.log(res)
+                }
+            });
+
+            var uploadPic = upload.render({
+                elem: '#adcoverupload' //绑定元素
+                ,url: '/upload' //上传接口
+                ,accept: 'file' //允许上传的文件类型
+                ,field: "ftpFile"
+                ,done: function(res, index, upload){
+                    //上传完毕回调
+                    layer.msg("上传成功");
+                    console.log(res)
+                    $("#adcoverurl").attr("value",res.data)
+                },error: function(res){
+                    //请求异常回调
+                    layer.msg("上传失败");
+                    console.log(res)
+                }
+            });
 		});
 
 		initData();
+        //给隐藏名称表单添加数据
+        function setAName(){
+            $("#assessorname").attr("value",$("#assessorid  option:selected").text());
+        }
 
-		function initData(){
+        function setCName(){
+            $("#companyname").attr("value",$("#companyid  option:selected").text());
+        }
+
+        showIdAndNameSelect("assessorid","assessor");
+        showIdAndNameSelect("companyid","company");
+
+
+        function initData(){
 			var id = getUrlParam("id");
 			if(id != ""){
 				$.ajax({

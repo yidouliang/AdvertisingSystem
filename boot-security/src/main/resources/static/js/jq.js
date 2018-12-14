@@ -44,6 +44,17 @@ function buttonEdit(href, permission, pers){
 	return btn.prop("outerHTML");
 }
 
+function buttonAB(href, permission, pers){
+    if(permission != ""){
+        if ($.inArray(permission, pers) < 0) {
+            return "";
+        }
+    }
+
+    var btn = $("<button class='layui-btn layui-btn-xs' title='编辑' onclick='window.location=\"" + href +"\"'><i class='layui-icon'>详情</i></button>");
+    return btn.prop("outerHTML");
+}
+
 
 function deleteCurrentTab(){
 	var lay_id = $(parent.document).find("ul.layui-tab-title").children("li.layui-this").attr("lay-id");

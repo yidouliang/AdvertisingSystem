@@ -52,7 +52,6 @@
 									<th>金额</th>
 									<th>创建日期</th>
 									<th>修改日期</th>
-									<th>数据状态</th>
 									<th>地区</th>
 									<th>盒子编码</th>
 									<th>盒子名称</th>
@@ -69,6 +68,11 @@
             </div>
         </div>
     </div>
+	<div style="float: right;display: flow">
+		<button class="btn btn-primary" onclick="location.href='../adorder/adOrderList.html'">返回</button>
+	</div>
+	</div>
+
 </body>
 </html>
 
@@ -93,6 +97,7 @@ function init(){
         		"type":"get",
         		"data":function(d){
     				d.id = $("#id").val();
+    				d.adorderid = getParam();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",
@@ -108,7 +113,6 @@ function init(){
 				{"data" : "payment", "defaultContent" : ""},
 				{"data" : "createtime", "defaultContent" : ""},
 				{"data" : "updatetime", "defaultContent" : ""},
-				{"data" : "datastate", "defaultContent" : ""},
 				{"data" : "areaname", "defaultContent" : ""},
 				{"data" : "boxcode", "defaultContent" : ""},
 				{"data" : "boxname", "defaultContent" : ""},
@@ -156,6 +160,12 @@ function del(id){
 $("#searchBt").click(function(){
 	example.ajax.reload();
 });
+
+function getParam(){
+    C1=window.location.href.split("?")[1];
+    C2=C1.split("=")[1];
+    return C2;
+}
 
 init();
 </script>

@@ -1,6 +1,9 @@
 package com.boot.security.server.controller;
 
+import com.boot.security.server.dto.ResponseData;
+import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.utils.FtpUtil;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,8 +19,7 @@ public class FtpFileUploadController {
 
     //ftp处理文件上传
     @RequestMapping("/upload")
-    @ResponseBody
-    public String  ftpUploadFile(@RequestParam("ftpFile")MultipartFile ftpFile){
+    public ResponseData<String> ftpUploadFile(@RequestParam("ftpFile")MultipartFile ftpFile){
         String  res= FtpUtil.getFileName(ftpFile);
         boolean  b=false;
         try {
@@ -26,7 +28,7 @@ public class FtpFileUploadController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return b?"上传成功":"上传失败";
+        return ResponseData.success(FtpUtil.getFilePath(res));
     }
 
 

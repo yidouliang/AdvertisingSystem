@@ -92,18 +92,18 @@
 					<input class='form-control' placeholder='订单支付平台流水号' type='text' name='payserialnumber' id='payserialnumber' data-bv-notempty='true' data-bv-notempty-message='订单支付平台流水号 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>创建时间</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='创建时间' type='text' name='createtime' id='createtime' data-bv-notempty='true' data-bv-notempty-message='创建时间 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>更新时间</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='更新时间' type='text' name='updatetime' id='updatetime' data-bv-notempty='true' data-bv-notempty-message='更新时间 不能为空'>
-				</div>
-			</div>
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>创建时间</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='创建时间' type='text' name='createtime' id='createtime' data-bv-notempty='true' data-bv-notempty-message='创建时间 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>更新时间</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='更新时间' type='text' name='updatetime' id='updatetime' data-bv-notempty='true' data-bv-notempty-message='更新时间 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>数据状态</label>
 				<div class='col-md-10'>
@@ -135,6 +135,13 @@
 	<script type="text/javascript">
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
+            var laydate = layui.laydate;
+
+            laydate.render({
+                elem: '#paytime',
+                type: 'datetime'
+            });
+
 		});
 
 		initData();
@@ -162,8 +169,8 @@
 						$('#payurl').val(data.payurl);
 						$('#failreason').val(data.failreason);
 						$('#payserialnumber').val(data.payserialnumber);
-						$('#createtime').val(data.createtime);
-						$('#updatetime').val(data.updatetime);
+						// $('#createtime').val(data.createtime);
+						// $('#updatetime').val(data.updatetime);
 						$('#datastate').val(data.datastate);
 
 					}

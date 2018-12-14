@@ -5,15 +5,16 @@ import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 
 public class FtpUtil {
 
-	private  final static String  FTP_HOST="192.168.25.129";
+	private  final static String  FTP_HOST="files.anntly.com";
 	private  final static int     FTP_PORT=21;
-	private  final static String  USER_NAME="fileuser";
+	private  final static String  USER_NAME="root";
 	private  final static String  PASS_WORD="123456";
 	private  final static String  BASE_PATH="/";
 
@@ -66,5 +67,10 @@ public class FtpUtil {
 	public static  String  getFileName(MultipartFile file){
 		String originFileName=file.getOriginalFilename();
 		return (new Date().getTime())+originFileName.substring(originFileName.lastIndexOf("."));
+	}
+
+
+	public static String getFilePath(String res){
+		return FTP_HOST+File.separator + res;
 	}
 }

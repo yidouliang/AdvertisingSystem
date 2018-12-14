@@ -1,5 +1,6 @@
 package com.boot.security.server.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,9 @@ public class AdOrderController {
     @PostMapping
     @ApiOperation(value = "保存")
     public AdOrder save(@RequestBody AdOrder adOrder) {
+        adOrder.setCreatetime(new Date());
+        adOrder.setUpdatetime(adOrder.getCreateTime());
+        adOrder.setDatastate(1);
         adOrderDao.save(adOrder);
 
         return adOrder;
@@ -46,6 +50,7 @@ public class AdOrderController {
     @PutMapping
     @ApiOperation(value = "修改")
     public AdOrder update(@RequestBody AdOrder adOrder) {
+        adOrder.setUpdatetime(adOrder.getCreateTime());
         adOrderDao.update(adOrder);
 
         return adOrder;

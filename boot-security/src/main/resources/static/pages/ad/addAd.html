@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -64,15 +65,24 @@
 				</div>
 			</div>
 
-			<button type="button" class="layui-btn" id="videoupload">
-				<i class="layui-icon">&#xe67c;</i>广告视频上传
-			</button>
+            <div class='form-group'>
+				<label class='col-md-2 control-label'>广告视频上传</label>
+			    <button type="button" class="layui-btn col-md-2" id="videoupload">
+				    <i class="layui-icon">&#xe67c; 上传</i>
+			    </button>
+            </div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>广告URL</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='广告URL' type='text' name='adurl' id='adurl' data-bv-notempty='true' data-bv-notempty-message='广告URL 不能为空'>
 				</div>
 			</div>
+            <div class='form-group'>
+				<label class='col-md-2 control-label'>封面图片上传</label>
+                <button type="button" class="layui-btn col-md-2" id="adcoverupload">
+                    <i class="layui-icon">&#xe67c; 上传</i>
+                </button>
+            </div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>广告封面URL</label>
 				<div class='col-md-10'>
@@ -137,20 +147,40 @@
 
             var upload = layui.upload;
 
-            //执行实例
-            var uploadInst = upload.render({
+            var uploadVideo = upload.render({
                 elem: '#videoupload' //绑定元素
-                ,url: '/upload/' //上传接口
-                ,done: function(res){
-                    //上传完毕回调
-					alert(res);
-                }
-                ,error: function(){
-                    //请求异常回调
-                }
+                ,url: '/upload' //上传接口
                 ,accept: 'file' //允许上传的文件类型
-				,field: "ftpFile"
+                ,field: "ftpFile"
+                ,done: function(res, index, upload){
+                    //上传完毕回调
+                    layer.msg("上传成功");
+					console.log(res)
+                    $("#adurl").attr("value",res.data)
+                },error: function(res){
+                    //请求异常回调
+                    layer.msg("上传失败");
+                    console.log(res)
+                }
             });
+
+            var uploadPic = upload.render({
+                elem: '#adcoverupload' //绑定元素
+                ,url: '/upload' //上传接口
+                ,accept: 'file' //允许上传的文件类型
+                ,field: "ftpFile"
+                ,done: function(res, index, upload){
+                    //上传完毕回调
+                    layer.msg("上传成功");
+                    console.log(res)
+                    $("#adcoverurl").attr("value",res.data)
+                },error: function(res){
+                    //请求异常回调
+                    layer.msg("上传失败");
+                    console.log(res)
+                }
+            });
+
 		});
 
 		//给隐藏名称表单添加数据

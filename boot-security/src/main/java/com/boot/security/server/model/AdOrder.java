@@ -23,107 +23,140 @@ public class AdOrder extends BaseEntity<Long> {
 	private Date updatetime;
 	private Integer datastate;
 
+
 	public String getOrderserialnumber() {
 		return orderserialnumber;
 	}
-	public String setOrderserialnumber() {
-		return orderserialnumber;
+
+	public void setOrderserialnumber(String orderserialnumber) {
+		this.orderserialnumber = orderserialnumber;
 	}
+
 	public String getOperatorid() {
 		return operatorid;
 	}
-	public String setOperatorid() {
-		return operatorid;
+
+	public void setOperatorid(String operatorid) {
+		this.operatorid = operatorid;
 	}
+
 	public String getOperatorname() {
 		return operatorname;
 	}
-	public String setOperatorname() {
-		return operatorname;
+
+	public void setOperatorname(String operatorname) {
+		this.operatorname = operatorname;
 	}
+
 	public String getAdconsumerid() {
 		return adconsumerid;
 	}
-	public String setAdconsumerid() {
-		return adconsumerid;
+
+	public void setAdconsumerid(String adconsumerid) {
+		this.adconsumerid = adconsumerid;
 	}
+
 	public String getAdconsumername() {
 		return adconsumername;
 	}
-	public String setAdconsumername() {
-		return adconsumername;
+
+	public void setAdconsumername(String adconsumername) {
+		this.adconsumername = adconsumername;
 	}
+
 	public String getCompanyid() {
 		return companyid;
 	}
-	public String setCompanyid() {
-		return companyid;
+
+	public void setCompanyid(String companyid) {
+		this.companyid = companyid;
 	}
+
 	public String getCompanyname() {
 		return companyname;
 	}
-	public String setCompanyname() {
-		return companyname;
+
+	public void setCompanyname(String companyname) {
+		this.companyname = companyname;
 	}
+
 	public BigDecimal getPayment() {
 		return payment;
 	}
-	public BigDecimal setPayment() {
-		return payment;
+
+	public void setPayment(BigDecimal payment) {
+		this.payment = payment;
 	}
+
 	public Integer getPaytype() {
 		return paytype;
 	}
-	public Integer setPaytype() {
-		return paytype;
+
+	public void setPaytype(Integer paytype) {
+		this.paytype = paytype;
 	}
+
 	public Date getPaytime() {
 		return paytime;
 	}
-	public Date setPaytime() {
-		return paytime;
+
+	public void setPaytime(Date paytime) {
+		this.paytime = paytime;
 	}
+
 	public Integer getPaystatus() {
 		return paystatus;
 	}
-	public Integer setPaystatus() {
-		return paystatus;
+
+	public void setPaystatus(Integer paystatus) {
+		this.paystatus = paystatus;
 	}
+
 	public String getPayurl() {
 		return payurl;
 	}
-	public String setPayurl() {
-		return payurl;
+
+	public void setPayurl(String payurl) {
+		this.payurl = payurl;
 	}
+
 	public String getFailreason() {
 		return failreason;
 	}
-	public String setFailreason() {
-		return failreason;
+
+	public void setFailreason(String failreason) {
+		this.failreason = failreason;
 	}
+
 	public String getPayserialnumber() {
 		return payserialnumber;
 	}
-	public String setPayserialnumber() {
-		return payserialnumber;
+
+	public void setPayserialnumber(String payserialnumber) {
+		this.payserialnumber = payserialnumber;
 	}
+
 	public Date getCreatetime() {
 		return createtime;
 	}
-	public Date setCreatetime() {
-		return createtime;
+
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
 	}
+
 	public Date getUpdatetime() {
 		return updatetime;
 	}
-	public Date setUpdatetime() {
-		return updatetime;
+
+	public void setUpdatetime(Date updatetime) {
+		this.updatetime = updatetime;
 	}
+
 	public Integer getDatastate() {
 		return datastate;
 	}
-	public Integer setDatastate() {
-		return datastate;
-	}
 
+	public void setDatastate(Integer datastate) {
+		this.datastate = datastate;
+	}
 }
