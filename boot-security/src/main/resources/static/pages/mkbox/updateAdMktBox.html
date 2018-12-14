@@ -106,6 +106,16 @@
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
+
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+
+            laydate.render({
+                elem: '#factorydate',
+                type: 'datetime'
+            });
+
+        });
 		
 		initData();
 		
