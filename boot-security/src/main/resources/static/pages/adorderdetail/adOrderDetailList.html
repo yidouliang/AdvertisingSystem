@@ -52,11 +52,12 @@
 									<th>金额</th>
 									<th>创建日期</th>
 									<th>修改日期</th>
+									<!--<th>盒子地区ID</th>-->
 									<th>地区</th>
 									<th>盒子编码</th>
 									<th>盒子名称</th>
 									<th>广告位</th>
-									<th>盒子地区</th>
+									<th>广告位名</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -113,11 +114,14 @@ function init(){
 				{"data" : "payment", "defaultContent" : ""},
 				{"data" : "createtime", "defaultContent" : ""},
 				{"data" : "updatetime", "defaultContent" : ""},
+				// {"data" : "areaid", "defaultContent" : ""},
 				{"data" : "areaname", "defaultContent" : ""},
 				{"data" : "boxcode", "defaultContent" : ""},
 				{"data" : "boxname", "defaultContent" : ""},
-				{"data" : "advertisingpositionid", "defaultContent" : ""},
-				{"data" : "areaid", "defaultContent" : ""},
+				{"data" : "advertisingpositionid", "defaultContent" : "",
+					"render": function ( data, type, full, meta ) {
+						return full.adsensename;}},
+				{"data" : "adsensename", "defaultContent" : "","visible":false},
 				{
 								"data": "",
 								"defaultContent": "",

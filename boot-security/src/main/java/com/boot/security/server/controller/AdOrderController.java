@@ -3,6 +3,7 @@ package com.boot.security.server.controller;
 import java.util.Date;
 import java.util.List;
 
+import com.boot.security.server.dto.AdOrderDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -68,7 +69,8 @@ public class AdOrderController {
         }, new ListHandler() {
 
             @Override
-            public List<AdOrder> list(PageTableRequest request) {
+            public List<AdOrderDto> list(PageTableRequest request) {
+
                 return adOrderDao.list(request.getParams(), request.getOffset(), request.getLimit());
             }
         }).handle(request);

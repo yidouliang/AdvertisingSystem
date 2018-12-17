@@ -20,6 +20,7 @@
 										<div class="form-group">
 											id：
 											<input id="id" type="text" class="form-control" placeholder="id">
+											<input id="boxcode" type="text" class="form-control" placeholder="盒子编码">
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
@@ -45,6 +46,8 @@
 									<th>盒子编码</th>
 									<th>广告位类型</th>
 									<th>广告位状态</th>
+									<th>广告位类型名称</th>
+									<th>广告位状态名称</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -80,14 +83,21 @@ function init(){
         		"type":"get",
         		"data":function(d){
     				d.id = $("#id").val();
+    				d.boxcode = $("#boxcode").val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",
             "columns": [
 				{"data" : "id", "defaultContent" : ""},
 				{"data" : "boxcode", "defaultContent" : ""},
-				{"data" : "adsensetype", "defaultContent" : ""},
-				{"data" : "adsensestatus", "defaultContent" : ""},
+				{"data" : "adsensetype", "defaultContent" : "",
+                    "render": function ( data, type, full, meta ) {
+                        return full.adsensetypename;}},
+				{"data" : "adsensestatus", "defaultContent" : "",
+                    "render": function ( data, type, full, meta ) {
+                        return full.adsensestatusname;}},
+                {"data" : "adsensetypename", "defaultContent" : "","visible":false},
+                {"data" : "adsensestatusname", "defaultContent" : "","visible":false},
 				{
 								"data": "",
 								"defaultContent": "",

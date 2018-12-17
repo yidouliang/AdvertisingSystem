@@ -25,11 +25,11 @@
 										</div>
 									</form>
 	                   			</td>
-	                   			<!--<td align="right">-->
-	                   				<!--<button class="layui-btn layui-btn-sm" onclick="location.href='addAdMktBox.html'">-->
-                                      <!--<i class="layui-icon">&#xe608;</i> 添加-->
-                                    <!--</button>-->
-	                   			<!--</td>-->
+	                   			<td align="right">
+	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addAdMktBox.html'">
+                                      <i class="layui-icon">&#xe608;</i> 添加
+                                    </button>
+	                   			</td>
 	                   		</tr>
 	                    </table>
 					</div>
@@ -55,7 +55,9 @@
 									<th>维度</th>
 									<th>地区ID</th>
 									<th>地区名称</th>
-									<!--<th>操作</th>-->
+									<th>盒子类型</th>
+									<th>盒子状态</th>
+									<th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -98,28 +100,34 @@ function init(){
 				{"data" : "id", "defaultContent" : ""},
 				{"data" : "boxname", "defaultContent" : ""},
 				{"data" : "boxcode", "defaultContent" : ""},
-				{"data" : "boxtype", "defaultContent" : ""},
+				{"data" : "boxtype", "defaultContent" : "",
+					"render": function ( data, type, full, meta ) {
+						return full.boxtypename;}},
 				{"data" : "boxperson", "defaultContent" : ""},
 				{"data" : "address", "defaultContent" : ""},
-				{"data" : "status", "defaultContent" : ""},
+				{"data" : "status", "defaultContent" : "",
+					"render": function ( data, type, full, meta ) {
+						return full.boxstatusname;}},
 				{"data" : "factorydate", "defaultContent" : ""},
 				{"data" : "persontelphone", "defaultContent" : ""},
 				{"data" : "longitude", "defaultContent" : ""},
 				{"data" : "latitude", "defaultContent" : ""},
 				{"data" : "areaid", "defaultContent" : ""},
 				{"data" : "areaname", "defaultContent" : ""},
-				// {
-				// 				"data": "",
-				// 				"defaultContent": "",
-				// 				"orderable":false,
-				// 		        "render": function (data, type, row) {
-                // 		           var id = row['id'];
-                // 		           var href = "updateAdMktBox.html?id=" + id;
-                //                    var edit = buttonEdit(href, "", pers);
-                // 		           var del = buttonDel(id, "", pers);
-                //                    return edit + del;
-                //   	            }
-				// 			},
+				{"data" : "boxtypename", "defaultContent" : "","visible":false},
+				{"data" : "boxstatusname", "defaultContent" : "","visible":false},
+				{
+								"data": "",
+								"defaultContent": "",
+								"orderable":false,
+						        "render": function (data, type, row) {
+                		           var id = row['id'];
+                		           var href = "updateAdMktBox.html?id=" + id;
+                                   var edit = buttonEdit(href, "", pers);
+                		           var del = buttonDel(id, "", pers);
+                                   return edit + del;
+                  	            }
+							},
 
             ],
            "order": [[ 0, "asc" ]]

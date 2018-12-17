@@ -25,11 +25,11 @@
 										</div>
 									</form>
 	                   			</td>
-	                   			<!--<td align="right">-->
-	                   				<!--<button class="layui-btn layui-btn-sm" onclick="location.href='addArea.html'">-->
-                                      <!--<i class="layui-icon">&#xe608;</i> 添加-->
-                                    <!--</button>-->
-	                   			<!--</td>-->
+	                   			<td align="right">
+	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addArea.html'">
+                                      <i class="layui-icon">&#xe608;</i> 添加
+                                    </button>
+	                   			</td>
 	                   		</tr>
 	                    </table>
 					</div>
@@ -45,7 +45,7 @@
 									<th>id</th>
 									<th>名称</th>
 									<th>pid</th>
-									<!--<th>操作</th>-->
+									<th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -88,18 +88,18 @@ function init(){
 				{"data" : "id", "defaultContent" : ""},
 				{"data" : "name", "defaultContent" : ""},
 				{"data" : "pid", "defaultContent" : ""},
-				// {
-				// 				"data": "",
-				// 				"defaultContent": "",
-				// 				"orderable":false,
-				// 		        "render": function (data, type, row) {
-                // 		           var id = row['id'];
-                // 		           var href = "updateArea.html?id=" + id;
-                //                    var edit = buttonEdit(href, "", pers);
-                // 		           var del = buttonDel(id, "", pers);
-                //                    return edit + del;
-                //   	            }
-				// 			},
+				{
+								"data": "",
+								"defaultContent": "",
+								"orderable":false,
+						        "render": function (data, type, row) {
+                		           var id = row['id'];
+                		           var href = "updateArea.html?id=" + id;
+                                   var edit = buttonEdit(href, "", pers);
+                		           var del = buttonDel(id, "", pers);
+                                   return edit + del;
+                  	            }
+							},
 
             ],
            "order": [[ 0, "asc" ]]
