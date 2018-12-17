@@ -2,6 +2,7 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.boot.security.server.dto.AdPlayRoleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -63,7 +64,7 @@ public class AdPlayRoleController {
         }, new ListHandler() {
 
             @Override
-            public List<AdPlayRole> list(PageTableRequest request) {
+            public List<AdPlayRoleDTO> list(PageTableRequest request) {
                 return adPlayRoleDao.list(request.getParams(), request.getOffset(), request.getLimit());
             }
         }).handle(request);

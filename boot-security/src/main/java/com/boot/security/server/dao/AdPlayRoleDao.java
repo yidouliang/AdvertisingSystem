@@ -3,6 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dto.AdPlayRoleDTO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -29,5 +30,5 @@ public interface AdPlayRoleDao {
     
     int count(@Param("params") Map<String, Object> params);
 
-    List<AdPlayRole> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+    List<AdPlayRoleDTO> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 }
