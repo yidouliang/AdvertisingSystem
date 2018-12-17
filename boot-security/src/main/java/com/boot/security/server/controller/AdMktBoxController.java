@@ -2,6 +2,7 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.boot.security.server.dto.AdMktBoxDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -63,7 +64,7 @@ public class AdMktBoxController {
         }, new ListHandler() {
 
             @Override
-            public List<AdMktBox> list(PageTableRequest request) {
+            public List<AdMktBoxDto> list(PageTableRequest request) {
                 return adMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit());
             }
         }).handle(request);

@@ -6,18 +6,18 @@
 	<sql id="where">
 		<where>
 			<if test="params.id != null and params.id != ''">
-				and id = #{params.id} 
+				and id = #{params.id}
 			</if>
 			<if test="params.boxcode != null and params.boxcode != ''">
-				and boxcode = #{params.boxcode} 
+				and boxcode = #{params.boxcode}
 			</if>
 			<if test="params.adsensetype != null and params.adsensetype != ''">
-				and adsensetype = #{params.adsensetype} 
+				and adsensetype = #{params.adsensetype}
 			</if>
 			<if test="params.adsensestatus != null and params.adsensestatus != ''">
-				and adsensestatus = #{params.adsensestatus} 
+				and adsensestatus = #{params.adsensestatus}
 			</if>
-		
+
 		</where>
 	</sql>
 
@@ -26,9 +26,25 @@
 		<include refid="where" />
 	</select>
 
-	<select id="list" resultType="BoxAdsense">
-		select * from box_adsense t
-		<include refid="where" />
+	<select id="list" resultType="com.boot.security.server.dto.BoxAdsenseDto">
+		select t.* ,d1.val adsensetypename,d2.val adsensestatusname
+		from box_adsense t,t_dict d1,t_dict d2
+		where d1.type = 'adsensetype' and t.adsensetype = d1.k
+		and d2.type = 'adsensestatus' and t.adsensestatus = d2.k
+
+		<if test="params.id != null and params.id != ''">
+			and id = #{params.id}
+		</if>
+		<if test="params.boxcode != null and params.boxcode != ''">
+			and boxcode = #{params.boxcode}
+		</if>
+		<if test="params.adsensetype != null and params.adsensetype != ''">
+			and adsensetype = #{params.adsensetype}
+		</if>
+		<if test="params.adsensestatus != null and params.adsensestatus != ''">
+			and adsensestatus = #{params.adsensestatus}
+		</if>
+
 		${params.orderBy}
 		limit #{offset}, #{limit}
 	</select>
@@ -37,13 +53,13 @@
 		update box_adsense t
 		<set>
 			<if test="boxcode != null">
-				boxcode = #{boxcode}, 
+				boxcode = #{boxcode},
 			</if>
 			<if test="adsensetype != null">
-				adsensetype = #{adsensetype}, 
+				adsensetype = #{adsensetype},
 			</if>
 			<if test="adsensestatus != null">
-				adsensestatus = #{adsensestatus}, 
+				adsensestatus = #{adsensestatus},
 			</if>
 
 		</set>

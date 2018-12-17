@@ -20,6 +20,13 @@
 										<div class="form-group">
 											id：
 											<input id="id" type="text" class="form-control" placeholder="id">
+											<input id="operatorname" type="text" class="form-control" placeholder="运营商">
+											<input id="adconsumername" type="text" class="form-control" placeholder="广告消费者">
+											<input id="companyname" type="text" class="form-control" placeholder="广告公司">
+											<!--<select id="paytype">-->
+												<!--<option value="0">待支付</option>-->
+												<!--<option value="1">已支付</option>-->
+											<!--</select>-->
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
@@ -43,9 +50,11 @@
                                 <tr>
 									<th>id</th>
 									<th>流水号</th>
+									<th>运营商ID</th>
 									<th>运营商</th>
+									<th>消费者ID</th>
 									<th>消费者</th>
-									<!--<th>广告媒体公司Id</th>-->
+									<th>广告媒体公司Id</th>
 									<th>公司名称</th>
 									<th>金额</th>
 									<th>方式</th>
@@ -56,7 +65,9 @@
 									<th>平台流水</th>
 									<th>创建时间</th>
 									<th>更新时间</th>
-									<!--<th>数据状态</th>-->
+									<th>数据状态</th>
+									<th>支付名称</th>
+									<th>支付状态名称</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -87,33 +98,46 @@ function init(){
         	"searching": false,
         	"processing": false,
         	"serverSide" : true,
+			"language": {
+				"url": "/js/plugin/datatables/Chinese.lang"
+			},
         	"ajax": {
         		"url" : "/adOrders",
         		"type":"get",
         		"data":function(d){
     				d.id = $("#id").val();
+    				d.operatorname = $("#operatorname").val();
+    				d.adconsumername = $("#adconsumername").val();
+    				d.companyname = $("#companyname").val();
+    				//d.paytype = $('#paytype option:selected').val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",
             "columns": [
 				{"data" : "id", "defaultContent" : ""},
 				{"data" : "orderserialnumber", "defaultContent" : ""},
-				//{"data" : "operatorid", "defaultContent" : ""},
+				{"data" : "operatorid", "defaultContent" : "","visible":false},
 				{"data" : "operatorname", "defaultContent" : ""},
-				//{"data" : "adconsumerid", "defaultContent" : ""},
+				{"data" : "adconsumerid", "defaultContent" : "","visible":false},
 				{"data" : "adconsumername", "defaultContent" : ""},
-				//{"data" : "companyid", "defaultContent" : ""},
+				{"data" : "companyid", "defaultContent" : "","visible":false},
 				{"data" : "companyname", "defaultContent" : ""},
 				{"data" : "payment", "defaultContent" : ""},
-				{"data" : "paytype", "defaultContent" : ""},
+				{"data" : "paytype", "defaultContent" : "",
+					"render": function ( data, type, full, meta ) {
+						return full.paytypename;}},
 				{"data" : "paytime", "defaultContent" : ""},
-				{"data" : "paystatus", "defaultContent" : ""},
+				{"data" : "paystatus", "defaultContent" : "",
+					"render": function ( data, type, full, meta ) {
+						return full.paystatusname;}},
 				{"data" : "payurl", "defaultContent" : ""},
 				{"data" : "failreason", "defaultContent" : ""},
 				{"data" : "payserialnumber", "defaultContent" : ""},
 				{"data" : "createtime", "defaultContent" : ""},
 				{"data" : "updatetime", "defaultContent" : ""},
-				// {"data" : "datastate", "defaultContent" : ""},
+				{"data" : "datastate", "defaultContent" : "","visible":false},
+				{"data" : "paytypename", "defaultContent" : "","visible":false},
+				{"data" : "paystatusname", "defaultContent" : "","visible":false},
 				{
 								"data": "",
 								"defaultContent": "",
