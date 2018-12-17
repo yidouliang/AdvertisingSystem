@@ -113,7 +113,15 @@
             });
 		});
 
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
 
+            laydate.render({
+                elem: '#factorydate',
+                type: 'datetime'
+            });
+
+        });
 
 		initData();
 

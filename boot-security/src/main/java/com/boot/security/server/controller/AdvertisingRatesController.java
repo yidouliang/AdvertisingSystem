@@ -2,6 +2,7 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.boot.security.server.dto.AdvertisingRatesDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -63,7 +64,7 @@ public class AdvertisingRatesController {
         }, new ListHandler() {
 
             @Override
-            public List<AdvertisingRates> list(PageTableRequest request) {
+            public List<AdvertisingRatesDTO> list(PageTableRequest request) {
                 return advertisingRatesDao.list(request.getParams(), request.getOffset(), request.getLimit());
             }
         }).handle(request);

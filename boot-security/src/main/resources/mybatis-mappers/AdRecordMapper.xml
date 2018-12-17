@@ -35,9 +35,13 @@
 		<include refid="where" />
 	</select>
 
-	<select id="list" resultType="AdRecord">
-		select * from ad_record t
-		<include refid="where" />
+	<select id="list" resultType="com.boot.security.server.dto.AdRecordDTO">
+		select a.id, a.boxcode, adid, t.val as adsensetype, playdate, adcount, adplayroleid
+		from ad_record a , t_dict t
+		where t.type = "adsensetype" and t.k = a.adsensetype
+        <if test="params.id != null and params.id != ''">
+            and a.id like concat(concat('%', #{params.id}), '%')
+        </if>
 		${params.orderBy}
 		limit #{offset}, #{limit}
 	</select>
